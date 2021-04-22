@@ -5,12 +5,12 @@ setTimeout(function () {
 
 var downloadClicked = false;
 function checkDownload(){
+    if(document.body.innerText.indexOf("Download") > -1){
+        downloadClicked = true;
+        document.querySelector("#download > a").click();
+    }
     if(!downloadClicked){
         setTimeout(checkDownload, 1e3);
-    }
-    if(document.body.innerText.indexOf("Download") > -1){
-        document.querySelector("#download > a").click();
-        downloadClicked = true;
     }
 }
 checkDownload();
